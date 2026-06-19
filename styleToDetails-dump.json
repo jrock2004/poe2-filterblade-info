@@ -1,0 +1,2208 @@
+{
+  "gold_pilehuge": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 255 255 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "gold_pilelarge": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 255 255 255 255"
+      }
+    },
+    "entryCount": 3
+  },
+  "gold_pilemedium": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 255 255 255 255"
+      }
+    },
+    "entryCount": 4
+  },
+  "gold_pilesmall": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "180",
+          "180",
+          "180"
+        ],
+        "raw": "SetTextColor 180 180 180"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "180"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 180"
+      }
+    },
+    "entryCount": 1
+  },
+  "exotics_btier": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "240",
+          "190",
+          "255"
+        ],
+        "raw": "SetTextColor 0 240 190 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "240",
+          "190",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 240 190 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "0",
+          "75",
+          "30",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 0 75 30 255"
+      }
+    },
+    "entryCount": 20
+  },
+  "exotics_ctier": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "240",
+          "190",
+          "255"
+        ],
+        "raw": "SetTextColor 0 240 190 255"
+      }
+    },
+    "entryCount": 18
+  },
+  "gear_jewelmagic": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "70",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 0 70 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "70",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 70 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "30",
+          "0",
+          "70",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 30 0 70 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "gear_jewelmagiclow": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "70",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 0 70 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "70",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 70 255 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "typebased_quest": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "74",
+          "230",
+          "58",
+          "255"
+        ],
+        "raw": "SetTextColor 74 230 58 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "exotics_artifact": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "240",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 240 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "240",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 240 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "exotics_artifacthigh": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "240",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 240 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "240",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 240 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "70",
+          "0",
+          "20",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 70 0 20 255"
+      }
+    },
+    "entryCount": 3
+  },
+  "itemproperty_achancing": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "125",
+          "255",
+          "89",
+          "255"
+        ],
+        "raw": "SetTextColor 125 255 89 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "125",
+          "255",
+          "89",
+          "255"
+        ],
+        "raw": "SetBorderColor 125 255 89 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "0",
+          "50",
+          "0"
+        ],
+        "raw": "SetBackgroundColor 0 50 0"
+      }
+    },
+    "entryCount": 4
+  },
+  "apex_stier": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "#\tSetTextColor 255 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "#\tSetBorderColor 255 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "#\tSetBackgroundColor 255 255 255 255"
+      }
+    },
+    "entryCount": 16
+  },
+  "itemproperty_bchancing": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "200",
+          "95"
+        ],
+        "raw": "SetBorderColor 0 200 95"
+      }
+    },
+    "entryCount": 1
+  },
+  "exotics_identifiedmod": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "240",
+          "190",
+          "255"
+        ],
+        "raw": "SetTextColor 0 240 190 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "240",
+          "190",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 240 190 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "47",
+          "0",
+          "74",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 47 0 74 255"
+      }
+    },
+    "entryCount": 7
+  },
+  "utility_basicraredecorator": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "gear_unstyled": {
+    "label": null,
+    "colors": {},
+    "entryCount": 39
+  },
+  "gear_decojewellery": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "220",
+          "220",
+          "0"
+        ],
+        "raw": "SetBorderColor 220 220 0"
+      }
+    },
+    "entryCount": 2
+  },
+  "itemproperty_level82": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "245",
+          "175",
+          "0"
+        ],
+        "raw": "SetTextColor 245 175 0"
+      }
+    },
+    "entryCount": 2
+  },
+  "exotics_corrupt": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "120",
+          "0",
+          "0",
+          "240"
+        ],
+        "raw": "SetBorderColor 120 0 0 240"
+      }
+    },
+    "entryCount": 1
+  },
+  "exotics_corrupthigh": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "250",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 250 0 0 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "utility_minimize": {
+    "label": null,
+    "colors": {
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "0"
+        ],
+        "raw": "#\tSetBackgroundColor 20 20 0 0"
+      }
+    },
+    "entryCount": 40
+  },
+  "itemproperty_aecocraft": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "127",
+          "127",
+          "255"
+        ],
+        "raw": "SetBorderColor 255 127 127 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "65",
+          "0",
+          "0"
+        ],
+        "raw": "SetBackgroundColor 65 0 0"
+      }
+    },
+    "entryCount": 1
+  },
+  "itemproperty_becocraft": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "127",
+          "127"
+        ],
+        "raw": "SetBorderColor 255 127 127"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "gear_highlightedsize": {
+    "label": null,
+    "colors": {
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 255"
+      }
+    },
+    "entryCount": 33
+  },
+  "gear_tieredjewellery": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "220",
+          "220",
+          "0"
+        ],
+        "raw": "SetBorderColor 220 220 0"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "75",
+          "75",
+          "0"
+        ],
+        "raw": "SetBackgroundColor 75 75 0"
+      }
+    },
+    "entryCount": 5
+  },
+  "gear_highlightdrop2": {
+    "label": null,
+    "colors": {
+      "SetBackgroundColor": {
+        "rgba": [
+          "30",
+          "0",
+          "70",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 30 0 70 255"
+      }
+    },
+    "entryCount": 15
+  },
+  "typebased_flaskcharms": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "100",
+          "100",
+          "100"
+        ],
+        "raw": "SetBorderColor 100 100 100"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "10",
+          "60",
+          "40"
+        ],
+        "raw": "SetBackgroundColor 10 60 40"
+      }
+    },
+    "entryCount": 6
+  },
+  "typebased_flaskcharms1high": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "245",
+          "175",
+          "0"
+        ],
+        "raw": "SetBorderColor 245 175 0"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "10",
+          "60",
+          "40"
+        ],
+        "raw": "SetBackgroundColor 10 60 40"
+      }
+    },
+    "entryCount": 2
+  },
+  "itemproperty_toplevelbased1": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "122",
+          "87",
+          "0"
+        ],
+        "raw": "SetBorderColor 122 87 0"
+      }
+    },
+    "entryCount": 3
+  },
+  "itemproperty_salvage1": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "180",
+          "180",
+          "180"
+        ],
+        "raw": "SetBorderColor 180 180 180"
+      }
+    },
+    "entryCount": 6
+  },
+  "itemproperty_salvage2": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "127",
+          "127",
+          "127"
+        ],
+        "raw": "SetBorderColor 127 127 127"
+      }
+    },
+    "entryCount": 17
+  },
+  "utility_highlight3": {
+    "label": null,
+    "colors": {},
+    "entryCount": 4
+  },
+  "gear_highlightdrop3": {
+    "label": null,
+    "colors": {
+      "SetBackgroundColor": {
+        "rgba": [
+          "30",
+          "0",
+          "70",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 30 0 70 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "utility_highlight4": {
+    "label": null,
+    "colors": {},
+    "entryCount": 6
+  },
+  "utility_decoremovermagic": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "136",
+          "136",
+          "255"
+        ],
+        "raw": "SetTextColor 136 136 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "240"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 240"
+      }
+    },
+    "entryCount": 1
+  },
+  "utility_decoremovernormal": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "200",
+          "200",
+          "200"
+        ],
+        "raw": "SetTextColor 200 200 200"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "240"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 240"
+      }
+    },
+    "entryCount": 1
+  },
+  "exotics_dtier": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "240",
+          "190",
+          "255"
+        ],
+        "raw": "SetTextColor 0 240 190 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "utility_unremarkabledrop": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "raw": "SetBorderColor 0 0 0 0"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "140"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 140"
+      }
+    },
+    "entryCount": 2
+  },
+  "gear_jewellery1": {
+    "label": null,
+    "colors": {
+      "SetBackgroundColor": {
+        "rgba": [
+          "75",
+          "75",
+          "0"
+        ],
+        "raw": "SetBackgroundColor 75 75 0"
+      }
+    },
+    "entryCount": 5
+  },
+  "gear_jewellery2": {
+    "label": null,
+    "colors": {
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 255"
+      }
+    },
+    "entryCount": 4
+  },
+  "gear_weakrare1": {
+    "label": null,
+    "colors": {
+      "SetBackgroundColor": {
+        "rgba": [
+          "35",
+          "35",
+          "35",
+          "240"
+        ],
+        "raw": "SetBackgroundColor 35 35 35 240"
+      }
+    },
+    "entryCount": 7
+  },
+  "gear_weakrare2": {
+    "label": null,
+    "colors": {
+      "SetBackgroundColor": {
+        "rgba": [
+          "80",
+          "80",
+          "80",
+          "190"
+        ],
+        "raw": "SetBackgroundColor 80 80 80 190"
+      }
+    },
+    "entryCount": 4
+  },
+  "xeno_a": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 255 255 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "28",
+          "55",
+          "135",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 28 55 135 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "xeno_b": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "70",
+          "130",
+          "225",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 70 130 225 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "xeno_c": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "125",
+          "180",
+          "240",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 125 180 240 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "xeno_d": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "180",
+          "215",
+          "248",
+          "255"
+        ],
+        "raw": "SetTextColor 180 215 248 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "180",
+          "215",
+          "248",
+          "255"
+        ],
+        "raw": "SetBorderColor 180 215 248 255"
+      }
+    },
+    "entryCount": 3
+  },
+  "xeno_e": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "180",
+          "215",
+          "248",
+          "255"
+        ],
+        "raw": "#\tSetTextColor 180 215 248 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "currency_d": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "240",
+          "180",
+          "100",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 240 180 100 255"
+      }
+    },
+    "entryCount": 7
+  },
+  "currency_supply2": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "220",
+          "175",
+          "132"
+        ],
+        "raw": "SetTextColor 220 175 132"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "220",
+          "175",
+          "132"
+        ],
+        "raw": "SetBorderColor 220 175 132"
+      }
+    },
+    "entryCount": 3
+  },
+  "currency_a": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 255 255 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "245",
+          "105",
+          "90",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 245 105 90 255"
+      }
+    },
+    "entryCount": 6
+  },
+  "currency_b": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "245",
+          "105",
+          "90",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 245 105 90 255"
+      }
+    },
+    "entryCount": 6
+  },
+  "currency_c": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "245",
+          "139",
+          "87",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 245 139 87 255"
+      }
+    },
+    "entryCount": 7
+  },
+  "currency_e": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "240",
+          "207",
+          "132"
+        ],
+        "raw": "SetTextColor 240 207 132"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "240",
+          "207",
+          "132"
+        ],
+        "raw": "SetBorderColor 240 207 132"
+      }
+    },
+    "entryCount": 6
+  },
+  "utility_unknownitem": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 0 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 255 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "255",
+          "0",
+          "255",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 255 0 255 255"
+      }
+    },
+    "entryCount": 10
+  },
+  "gear_jewelrare": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "220",
+          "220",
+          "0"
+        ],
+        "raw": "SetTextColor 220 220 0"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "220",
+          "220",
+          "0"
+        ],
+        "raw": "SetBorderColor 220 220 0"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "75",
+          "75",
+          "0"
+        ],
+        "raw": "SetBackgroundColor 75 75 0"
+      }
+    },
+    "entryCount": 1
+  },
+  "uniques_a": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 255 255 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "188",
+          "96",
+          "37",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 188 96 37 255"
+      }
+    },
+    "entryCount": 3
+  },
+  "uniques_x": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "188",
+          "96",
+          "37",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 188 96 37 255"
+      }
+    },
+    "entryCount": 3
+  },
+  "uniques_b": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "188",
+          "96",
+          "37",
+          "255"
+        ],
+        "raw": "SetTextColor 188 96 37 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "188",
+          "96",
+          "37",
+          "255"
+        ],
+        "raw": "SetBorderColor 188 96 37 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "53",
+          "13",
+          "13",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 53 13 13 255"
+      }
+    },
+    "entryCount": 6
+  },
+  "typebased_gems1": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "20",
+          "240",
+          "240"
+        ],
+        "raw": "SetTextColor 20 240 240"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "20",
+          "240",
+          "240"
+        ],
+        "raw": "SetBorderColor 20 240 240"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "6",
+          "0",
+          "60"
+        ],
+        "raw": "SetBackgroundColor 6 0 60"
+      }
+    },
+    "entryCount": 2
+  },
+  "typebased_gems2": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "20",
+          "240",
+          "240"
+        ],
+        "raw": "SetTextColor 20 240 240"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "20",
+          "240",
+          "240"
+        ],
+        "raw": "SetBorderColor 20 240 240"
+      }
+    },
+    "entryCount": 15
+  },
+  "typebased_gems3": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "20",
+          "240",
+          "240"
+        ],
+        "raw": "SetTextColor 20 240 240"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "20",
+          "240",
+          "240"
+        ],
+        "raw": "SetBorderColor 20 240 240"
+      }
+    },
+    "entryCount": 3
+  },
+  "maps_deco1": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "maps_deco2": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "maps_deco3": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "200",
+          "200",
+          "200",
+          "255"
+        ],
+        "raw": "SetBorderColor 200 200 200 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "maps_deco4": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "200",
+          "200",
+          "200",
+          "255"
+        ],
+        "raw": "SetBorderColor 200 200 200 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "maps_decotierupgrade": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "220",
+          "50",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 220 50 0 255"
+      }
+    },
+    "entryCount": 16
+  },
+  "maps_decooverlevel": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "200",
+          "200",
+          "200",
+          "255"
+        ],
+        "raw": "#\tSetBorderColor 200 200 200 255"
+      }
+    },
+    "entryCount": 4
+  },
+  "maps_specialb": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "145",
+          "30",
+          "220",
+          "255"
+        ],
+        "raw": "SetTextColor 145 30 220 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "145",
+          "30",
+          "220",
+          "255"
+        ],
+        "raw": "SetBorderColor 145 30 220 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "235",
+          "220",
+          "245",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 235 220 245 255"
+      }
+    },
+    "entryCount": 3
+  },
+  "maps_specialc": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "145",
+          "30",
+          "220",
+          "255"
+        ],
+        "raw": "SetTextColor 145 30 220 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "145",
+          "30",
+          "220",
+          "255"
+        ],
+        "raw": "SetBorderColor 145 30 220 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "200",
+          "200",
+          "200",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 200 200 200 255"
+      }
+    },
+    "entryCount": 3
+  },
+  "maps_regularhighest": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "235",
+          "235",
+          "235",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 235 235 235 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "maps_regularhigh": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "200",
+          "200",
+          "200",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 200 200 200 255"
+      }
+    },
+    "entryCount": 3
+  },
+  "maps_regularmid": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 255"
+      }
+    },
+    "entryCount": 5
+  },
+  "maps_regularlow": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 255"
+      }
+    },
+    "entryCount": 7
+  },
+  "currency_supply4": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "170",
+          "158",
+          "130"
+        ],
+        "raw": "SetTextColor 170 158 130"
+      }
+    },
+    "entryCount": 2
+  },
+  "currency_specialartifact": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "240",
+          "207",
+          "132"
+        ],
+        "raw": "#\tSetTextColor 240 207 132"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "240",
+          "207",
+          "132"
+        ],
+        "raw": "#\tSetBorderColor 240 207 132"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "76",
+          "51",
+          "12"
+        ],
+        "raw": "#\tSetBackgroundColor 76 51 12"
+      }
+    },
+    "entryCount": 1
+  },
+  "fragments_a": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 255 255 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "220",
+          "0",
+          "255",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 220 0 255 255"
+      }
+    },
+    "entryCount": 4
+  },
+  "fragments_b": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "220",
+          "0",
+          "255",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 220 0 255 255"
+      }
+    },
+    "entryCount": 2
+  },
+  "uniques_exceptional": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "240",
+          "190",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 240 190 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "188",
+          "96",
+          "37",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 188 96 37 255"
+      }
+    },
+    "entryCount": 5
+  },
+  "uniques_xbossdrop": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "188",
+          "96",
+          "37",
+          "255"
+        ],
+        "raw": "SetTextColor 188 96 37 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "188",
+          "96",
+          "37",
+          "255"
+        ],
+        "raw": "SetBorderColor 188 96 37 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "53",
+          "13",
+          "13",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 53 13 13 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "uniques_c": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "188",
+          "96",
+          "37",
+          "255"
+        ],
+        "raw": "SetTextColor 188 96 37 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "fragments_splinter1": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetTextColor 255 255 255 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "255",
+          "255",
+          "255",
+          "255"
+        ],
+        "raw": "SetBorderColor 255 255 255 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "220",
+          "0",
+          "255",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 220 0 255 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "fragments_splinter2": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "220",
+          "0",
+          "255",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 220 0 255 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "fragments_splinter3": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "180",
+          "75",
+          "225",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 180 75 225 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "fragments_splinter4": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "200",
+          "75",
+          "200",
+          "255"
+        ],
+        "raw": "SetTextColor 200 75 200 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "200",
+          "75",
+          "200",
+          "255"
+        ],
+        "raw": "SetBorderColor 200 75 200 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "50",
+          "0",
+          "75"
+        ],
+        "raw": "SetBackgroundColor 50 0 75"
+      }
+    },
+    "entryCount": 1
+  },
+  "fragments_splinter5": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "200",
+          "75",
+          "200",
+          "255"
+        ],
+        "raw": "SetTextColor 200 75 200 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "200",
+          "75",
+          "200",
+          "255"
+        ],
+        "raw": "SetBorderColor 200 75 200 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "fragments_c": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetTextColor 0 0 0 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "255"
+        ],
+        "raw": "SetBorderColor 0 0 0 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "180",
+          "75",
+          "225",
+          "255"
+        ],
+        "raw": "SetBackgroundColor 180 75 225 255"
+      }
+    },
+    "entryCount": 6
+  },
+  "fragments_d": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "200",
+          "75",
+          "200",
+          "255"
+        ],
+        "raw": "#\tSetTextColor 200 75 200 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "200",
+          "75",
+          "200",
+          "255"
+        ],
+        "raw": "#\tSetBorderColor 200 75 200 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "50",
+          "0",
+          "75"
+        ],
+        "raw": "#\tSetBackgroundColor 50 0 75"
+      }
+    },
+    "entryCount": 1
+  },
+  "fragments_e": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "180",
+          "75",
+          "225",
+          "255"
+        ],
+        "raw": "#\tSetTextColor 180 75 225 255"
+      }
+    },
+    "entryCount": 1
+  },
+  "fragments_fragdmuted": {
+    "label": null,
+    "colors": {
+      "SetTextColor": {
+        "rgba": [
+          "200",
+          "75",
+          "200",
+          "255"
+        ],
+        "raw": "SetTextColor 200 75 200 255"
+      },
+      "SetBorderColor": {
+        "rgba": [
+          "200",
+          "75",
+          "200",
+          "255"
+        ],
+        "raw": "SetBorderColor 200 75 200 255"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "50",
+          "0",
+          "75"
+        ],
+        "raw": "SetBackgroundColor 50 0 75"
+      }
+    },
+    "entryCount": 3
+  },
+  "itemproperty_salvagelvl1": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "180",
+          "180",
+          "180"
+        ],
+        "raw": "SetBorderColor 180 180 180"
+      }
+    },
+    "entryCount": 10
+  },
+  "gear_weakrareleveling1": {
+    "label": null,
+    "colors": {
+      "SetBackgroundColor": {
+        "rgba": [
+          "35",
+          "35",
+          "35",
+          "240"
+        ],
+        "raw": "SetBackgroundColor 35 35 35 240"
+      }
+    },
+    "entryCount": 2
+  },
+  "gear_vendor": {
+    "label": null,
+    "colors": {
+      "SetBorderColor": {
+        "rgba": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "raw": "SetBorderColor 0 0 0 0"
+      },
+      "SetBackgroundColor": {
+        "rgba": [
+          "20",
+          "20",
+          "0",
+          "180"
+        ],
+        "raw": "SetBackgroundColor 20 20 0 180"
+      }
+    },
+    "entryCount": 3
+  }
+}
