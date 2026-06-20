@@ -5,21 +5,16 @@ A custom color theme for NeverSink's Semi-Strict filter on [FilterBlade.xyz](htt
 ---
 
 ## Screenshots
-
-### Gems, Currency & Uniques
-![Gems, currency and uniques dropping](screenshots/simulate-gems-currency.png)
-
-Clear visual hierarchy at a glance — purple triangle for skill gems, purple kite for spirit gems, purple diamond for support gems, yellow circle for currency, orange star for uniques. Filler gear fades into the background.
-
-### Jewellery & Currency
-![Jewellery and currency](screenshots/simulate-jewellery-currency.png)
-
-Silver moon icons for jewellery stand out immediately from currency (yellow circle) and uniques (orange star). The purple beam signals a high-value drop worth stopping for.
-
-### Waystones & Currency
-![Waystones and currency](screenshots/simulate-waystones.png)
-
-T16 waystone in full amethyst purple with diamond icon. Currency in dark gold circles. Low-value gear fades naturally. The visual hierarchy lets you prioritize without reading every label.
+ 
+<h3 align="center">Gems, Currency & Uniques</h3>
+<div align="center"><img src="screenshots/simulate-gems-currency.png" alt="Gems, currency and uniques dropping" width="700"/></div>
+<p align="center">Clear visual hierarchy at a glance — purple triangle for skill gems, purple kite for spirit gems, purple diamond for support gems, yellow circle for currency, orange star for uniques. Filler gear fades into the background.</p>
+<h3 align="center">Jewellery & Currency</h3>
+<div align="center"><img src="screenshots/simulate-jewellery-currency.png" alt="Jewellery and currency" width="700"/></div>
+<p align="center">Silver moon icons for jewellery stand out immediately from currency (yellow circle) and uniques (orange star). The purple beam signals a high-value drop worth stopping for.</p>
+<h3 align="center">Waystones & Currency</h3>
+<div align="center"><img src="screenshots/simulate-waystones.png" alt="Waystones and currency" width="700"/></div>
+<p align="center">T16 waystone in full amethyst purple with diamond icon. Currency in dark gold circles. Low-value gear fades naturally. The visual hierarchy lets you prioritize without reading every label.</p>
 
 ---
 
