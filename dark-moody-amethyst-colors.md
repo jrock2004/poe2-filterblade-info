@@ -154,13 +154,13 @@ Format: `styleId` | Text | Border | Background | Notes
 | `gear_jewelrare` | `#8B3A62` | `#6B2040` | `#120008` | Rare jewels |
 | `gear_jewelmagic` | `#3A6BBF` | `#2A4F9A` | `#000A18` | Magic jewels |
 | `gear_jewelmagiclow` | `#3A6BBF` | `#2A4F9A` | transparent | Low magic jewels |
-| `gear_jewellery1` | `#A0522D` | `#7A3B1E` | `#1A0A00` | Jewellery T1 |
-| `gear_jewellery2` | `#8B3A62` | `#6B2040` | `#120008` | Jewellery T2 |
-| `gear_tieredjewellery` | `#A0522D` | `#7A3B1E` | `#1A0A00` | Tiered jewellery |
-| `gear_decojewellery` | `#A0522D` | `#7A3B1E` | transparent | Deco jewellery border only |
-| `gear_highlightdrop2` | `#8B3A62` | `#6B2040` | `#120008` | Highlight drop tier 2 |
-| `gear_highlightdrop3` | `#A0522D` | `#7A3B1E` | `#1A0A00` | Highlight drop tier 3 |
-| `gear_highlightedsize` | `#A0522D` | `#7A3B1E` | transparent | Highlighted size gear |
+| `gear_jewellery1` | `#D0C8C0` | `#9A9088` | `#1A1814` | Jewellery T1 |
+| `gear_jewellery2` | `#B8B0A8` | `#787068` | `#120E0C` | Jewellery T2 |
+| `gear_tieredjewellery` | `#D0C8C0` | `#9A9088` | `#1A1814` | Tiered jewellery |
+| `gear_decojewellery` | `#D0C8C0` | `#9A9088` | transparent | Deco jewellery border only |
+| `gear_highlightdrop2` | `#B8B0A8` | `#787068` | `#120E0C` | Highlight drop tier 2 — silver to match jewellery T2 |
+| `gear_highlightdrop3` | `#D0C8C0` | `#9A9088` | `#1A1814` | Highlight drop tier 3 — silver to match jewellery T1 |
+| `gear_highlightedsize` | `#D0C8C0` | `#9A9088` | transparent | Highlighted size gear — silver |
 | `gear_weakrare1` | `#7A7060` | `#5A5048` | transparent | Weak rare gear T1 |
 | `gear_weakrare2` | `#7A7060` | `#5A5048` | transparent | Weak rare gear T2 |
 | `gear_weakrareleveling1` | `#7A7060` | `#5A5048` | transparent | Weak rare leveling gear |
@@ -188,8 +188,8 @@ Format: `styleId` | Text | Border | Background | Notes
 | `itemproperty_salvage1` | `#7A7060` | `#5A5048` | transparent | Salvageable quality T1 |
 | `itemproperty_salvage2` | `#7A7060` | `#5A5048` | transparent | Salvageable socket T2 |
 | `itemproperty_salvagelvl1` | `#7A7060` | `#5A5048` | transparent | Salvageable leveling |
-| `itemproperty_level82` | `#7A7060` | `#5A5048` | transparent | ilvl 82 bases |
-| `itemproperty_toplevelbased1` | `#7A7060` | `#5A5048` | transparent | Top level bases |
+| `itemproperty_level82` | `#7A7060` | `#C9A84C` | transparent | ilvl 82 bases — gold border, size 38, small white UpsideDownHouse icon, Lolcohol 7-Chancing sound |
+| `itemproperty_toplevelbased1` | `#7A7060` | `#C9A84C` | transparent | Top level bases — gold border, size 38, small white UpsideDownHouse icon, Lolcohol 7-Chancing sound |
 
 ### utility
 
@@ -225,7 +225,7 @@ These cannot be set via the GFT style key system. They require individual rule c
 
 Where size is `"0"` (large), `"1"` (medium), `"2"` (small).
 
-### Skill gems — Diamond · Purple
+### Skill gems — Triangle · Purple
 
 | itemTag | Display name | Size | Color | Shape |
 |---|---|---|---|---|
@@ -253,12 +253,12 @@ Where size is `"0"` (large), `"1"` (medium), `"2"` (small).
 | `gems->uncut;otherspiriteg` | Spirit Gem Endgame | none | — | — |
 | `gems->uncut;spiritcampaign` | Spirit Gem Campaign | none | — | — |
 
-### Support gems — Cross · Purple
+### Support gems — Diamond · Blue
 
 | itemTag | Display name | Size | Color | Shape |
 |---|---|---|---|---|
-| `gems->uncut;supportearlymaps` | Support Gem Endgame Early | `1` | `Purple` | `Cross` |
-| `gems->uncut;othersupporteg` | Support Gem Endgame | `2` | `Purple` | `Cross` |
+| `gems->uncut;supportearlymaps` | Support Gem Endgame Early | `1` | `Blue` | `Diamond` |
+| `gems->uncut;othersupporteg` | Support Gem Endgame | `2` | `Blue` | `Diamond` |
 | `gems->uncut;supportcampaign` | Support Gem Campaign | none | — | — |
 
 ### Lineage gems — Diamond · Pink
@@ -303,151 +303,132 @@ Where size is `"0"` (large), `"1"` (medium), `"2"` (small).
 
 ## Section 5 — Re-apply Script
 
-Paste in browser console on filterblade.xyz to reapply all GFT color changes.
+> **Important:** FilterBlade stores colors as `"rgb(r, g, b)"` strings, not hex. The script below uses the correct format confirmed from console captures.
+
+> **logicName for style-based changes is `"editStyleCombi"`** — this applies to colors, sounds, and beams set via the GFT style system.
+
+Paste in browser console on filterblade.xyz to reapply all GFT color changes:
 
 ```javascript
-function setColor(styleId, textHex, borderHex, bgHex) {
-  const styleToDetails = gFilterBlade.filterData.filterEntryStyles.styleToDetails;
-  const style = styleToDetails[styleId];
-  if (!style) return `MISSING: ${styleId}`;
-  const lineList = style.styleContentFilterEntry.lineList;
-
-  function hexToRgba(hex) {
-    return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16), 255];
-  }
-
-  if (textHex) {
-    const line = lineList.find(l => l.ident === 'SetTextColor');
-    if (line) {
-      const [r,g,b,a] = hexToRgba(textHex);
-      line.param[0]=r; line.param[1]=g; line.param[2]=b; line.param[3]=a;
-      line.raw=`\tSetTextColor ${r} ${g} ${b} ${a}`;
-      line.rebuiltLine=`SetTextColor ${r} ${g} ${b} ${a}`;
-      line.isEverModified=true;
-    }
-  }
-  if (borderHex) {
-    const line = lineList.find(l => l.ident === 'SetBorderColor');
-    if (line) {
-      const [r,g,b,a] = hexToRgba(borderHex);
-      line.param[0]=r; line.param[1]=g; line.param[2]=b; line.param[3]=a;
-      line.raw=`\tSetBorderColor ${r} ${g} ${b} ${a}`;
-      line.rebuiltLine=`SetBorderColor ${r} ${g} ${b} ${a}`;
-      line.isEverModified=true;
-    }
-  }
-  if (bgHex) {
-    const line = lineList.find(l => l.ident === 'SetBackgroundColor');
-    if (line) {
-      const [r,g,b,a] = hexToRgba(bgHex);
-      line.param[0]=r; line.param[1]=g; line.param[2]=b; line.param[3]=a;
-      line.raw=`\tSetBackgroundColor ${r} ${g} ${b} ${a}`;
-      line.rebuiltLine=`SetBackgroundColor ${r} ${g} ${b} ${a}`;
-      line.isEverModified=true;
-    } else {
-      // transparent — disable background if line exists
-      const bgLine = lineList.find(l => l.ident === 'SetBackgroundColor');
-      if (bgLine) { bgLine.param[3] = 0; bgLine.isEverModified = true; }
-    }
-  }
-  style.updateAllConnectedEntries();
-  return `OK: ${styleId}`;
+function applyStyleChange(styleId, identifier, newValue) {
+  const cs = gFilterBlade.changeStorage;
+  cs.addChange('dynamic', {
+    styleId,
+    identifier: {
+      identifier,
+      mode: 'normal',
+      index: 1,
+      version: 3,
+      isReal: true
+    },
+    newValue,
+    logicName: 'editStyleCombi',
+    version: 1
+  }, true);
 }
 
-// [styleId, textHex, borderHex, bgHex or null for transparent]
+function setColors(styleId, textRgb, borderRgb, bgRgb) {
+  if (textRgb)   applyStyleChange(styleId, 'SetTextColor',       textRgb);
+  if (borderRgb) applyStyleChange(styleId, 'SetBorderColor',     borderRgb);
+  if (bgRgb)     applyStyleChange(styleId, 'SetBackgroundColor', bgRgb);
+  // null bg = transparent (alpha 0) — omit SetBackgroundColor entirely
+}
+
+// [styleId, textRgb, borderRgb, bgRgb or null for transparent]
 const colors = [
   ['apex_stier',               '#C77DFF', '#E0AAFF', '#1A0030'],
-  ['currency_a',               '#C9A84C', '#8B6914', '#2A1A00'],
-  ['currency_b',               '#C9A84C', '#8B6914', '#2A1A00'],
-  ['currency_c',               '#A08030', '#6B5010', '#1E1200'],
-  ['currency_d',               '#A08030', '#6B5010', '#1E1200'],
-  ['currency_e',               '#7A6020', '#4A3A10', null],
-  ['currency_supply2',         '#7A6020', '#4A3A10', null],
-  ['currency_supply4',         '#7A6020', '#4A3A10', null],
-  ['currency_specialartifact', '#A08030', '#6B5010', '#1E1200'],
-  ['gold_pilehuge',            '#C9A84C', '#8B6914', '#2A1A00'],
-  ['gold_pilelarge',           '#C9A84C', '#8B6914', '#1E1200'],
-  ['gold_pilemedium',          '#A08030', '#6B5010', null],
-  ['gold_pilesmall',           '#7A7060', '#5A5048', null],
-  ['uniques_a',                '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['uniques_exceptional',      '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['uniques_x',                '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['uniques_xbossdrop',        '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['uniques_b',                '#A0522D', '#7A3B1E', '#120800'],
-  ['uniques_c',                '#A0522D', '#7A3B1E', null],
-  ['exotics_btier',            '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['exotics_ctier',            '#8B3A62', '#6B2040', '#120008'],
-  ['exotics_identifiedmod',    '#8B3A62', '#6B2040', '#120008'],
-  ['exotics_dtier',            '#3A6BBF', '#2A4F9A', '#000A18'],
-  ['exotics_artifact',         '#C0243C', '#8B0000', '#1A0008'],
-  ['exotics_artifacthigh',     '#C0243C', '#8B0000', '#1A0008'],
-  ['exotics_corrupt',          '#C0243C', '#8B0000', '#1A0008'],
-  ['exotics_corrupthigh',      '#C0243C', '#8B0000', '#1A0008'],
+  ['currency_a',               '#C9A84C',  '#8B6914',  '#2A1A00'],
+  ['currency_b',               '#C9A84C',  '#8B6914',  '#2A1A00'],
+  ['currency_c',               '#A08030',  '#6B5010',   '#1E1200'],
+  ['currency_d',               '#A08030',  '#6B5010',   '#1E1200'],
+  ['currency_e',               '#7A6020',   '#4A3A10',    null],
+  ['currency_supply2',         '#7A6020',   '#4A3A10',    null],
+  ['currency_supply4',         '#7A6020',   '#4A3A10',    null],
+  ['currency_specialartifact', '#A08030',  '#6B5010',   '#1E1200'],
+  ['gold_pilehuge',            '#C9A84C',  '#8B6914',  '#2A1A00'],
+  ['gold_pilelarge',           '#C9A84C',  '#8B6914',  '#1E1200'],
+  ['gold_pilemedium',          '#A08030',  '#6B5010',   null],
+  ['gold_pilesmall',           '#7A7060',  '#5A5048',    null],
+  ['uniques_a',                '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['uniques_exceptional',      '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['uniques_x',                '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['uniques_xbossdrop',        '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['uniques_b',                '#A0522D',   '#7A3B1E',   '#120800'],
+  ['uniques_c',                '#A0522D',   '#7A3B1E',   null],
+  ['exotics_btier',            '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['exotics_ctier',            '#8B3A62',   '#6B2040',   '#120008'],
+  ['exotics_identifiedmod',    '#8B3A62',   '#6B2040',   '#120008'],
+  ['exotics_dtier',            '#3A6BBF',  '#2A4F9A',   '#000A18'],
+  ['exotics_artifact',         '#C0243C',   '#8B0000',     '#1A0008'],
+  ['exotics_artifacthigh',     '#C0243C',   '#8B0000',     '#1A0008'],
+  ['exotics_corrupt',          '#C0243C',   '#8B0000',     '#1A0008'],
+  ['exotics_corrupthigh',      '#C0243C',   '#8B0000',     '#1A0008'],
   ['fragments_a',              '#C77DFF', '#E0AAFF', '#1A0030'],
-  ['fragments_b',              '#C9A84C', '#8B6914', '#2A1A00'],
-  ['fragments_c',              '#C9A84C', '#8B6914', '#1E1200'],
-  ['fragments_d',              '#8B3A62', '#6B2040', '#120008'],
-  ['fragments_e',              '#7A7060', '#5A5048', null],
+  ['fragments_b',              '#C9A84C',  '#8B6914',  '#2A1A00'],
+  ['fragments_c',              '#C9A84C',  '#8B6914',  '#1E1200'],
+  ['fragments_d',              '#8B3A62',   '#6B2040',   '#120008'],
+  ['fragments_e',              '#7A7060',  '#5A5048',    null],
   ['fragments_splinter1',      '#C77DFF', '#E0AAFF', '#1A0030'],
   ['fragments_splinter2',      '#C77DFF', '#E0AAFF', '#1A0030'],
-  ['fragments_splinter3',      '#C9A84C', '#8B6914', '#2A1A00'],
-  ['fragments_splinter4',      '#8B3A62', '#6B2040', '#120008'],
-  ['fragments_splinter5',      '#7A7060', '#5A5048', null],
-  ['fragments_fragdmuted',     '#7A7060', '#5A5048', null],
+  ['fragments_splinter3',      '#C9A84C',  '#8B6914',  '#2A1A00'],
+  ['fragments_splinter4',      '#8B3A62',   '#6B2040',   '#120008'],
+  ['fragments_splinter5',      '#7A7060',  '#5A5048',    null],
+  ['fragments_fragdmuted',     '#7A7060',  '#5A5048',    null],
   ['maps_specialb',            '#C77DFF', '#E0AAFF', '#1A0030'],
-  ['maps_specialc',            '#C9A84C', '#8B6914', '#2A1A00'],
-  ['maps_regularhighest',      '#A0522D', '#7A3B1E', '#1A1000'],
-  ['maps_regularhigh',         '#8B3A62', '#6B2040', '#0E0008'],
-  ['maps_regularmid',          '#3A6BBF', '#2A4F9A', '#000A18'],
-  ['maps_regularlow',          '#7A7060', '#5A5048', null],
-  ['typebased_quest',          '#C9A84C', '#8B6914', '#2A1A00'],
+  ['maps_specialc',            '#C9A84C',  '#8B6914',  '#2A1A00'],
+  ['maps_regularhighest',      '#A0522D',   '#7A3B1E',   '#1A1000'],
+  ['maps_regularhigh',         '#8B3A62',   '#6B2040',   '#0E0008'],
+  ['maps_regularmid',          '#3A6BBF',  '#2A4F9A',   '#000A18'],
+  ['maps_regularlow',          '#7A7060',  '#5A5048',    null],
+  ['typebased_quest',          '#C9A84C',  '#8B6914',  '#2A1A00'],
   ['typebased_gems1',          '#C77DFF', '#9B4FCC', '#0E0018'],
-  ['typebased_gems2',          '#8B3A62', '#6B2040', '#120008'],
-  ['typebased_gems3',          '#3A6BBF', '#2A4F9A', null],
-  ['typebased_flaskcharms',    '#2A8B6A', '#1A5A44', null],
-  ['typebased_flaskcharms1high','#2A8B6A','#1A5A44', null],
-  ['gear_jewelrare',           '#8B3A62', '#6B2040', '#120008'],
-  ['gear_jewelmagic',          '#3A6BBF', '#2A4F9A', '#000A18'],
-  ['gear_jewelmagiclow',       '#3A6BBF', '#2A4F9A', null],
-  ['gear_jewellery1',          '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['gear_jewellery2',          '#8B3A62', '#6B2040', '#120008'],
-  ['gear_tieredjewellery',     '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['gear_decojewellery',       '#A0522D', '#7A3B1E', null],
-  ['gear_highlightdrop2',      '#8B3A62', '#6B2040', '#120008'],
-  ['gear_highlightdrop3',      '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['gear_highlightedsize',     '#A0522D', '#7A3B1E', null],
-  ['gear_weakrare1',           '#7A7060', '#5A5048', null],
-  ['gear_weakrare2',           '#7A7060', '#5A5048', null],
-  ['gear_weakrareleveling1',   '#7A7060', '#5A5048', null],
-  ['gear_vendor',              '#3A3530', '#252220', null],
-  ['xeno_a',                   '#C0243C', '#8B0000', '#1A0008'],
-  ['xeno_b',                   '#2A8B6A', '#1A5A44', null],
-  ['xeno_c',                   '#2A8B6A', '#1A5A44', null],
-  ['xeno_d',                   '#7A7060', '#5A5048', null],
-  ['xeno_e',                   '#7A7060', '#5A5048', null],
-  ['itemproperty_achancing',   '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['itemproperty_bchancing',   '#2A8B6A', '#1A5A44', null],
-  ['itemproperty_aecocraft',   '#A0522D', '#7A3B1E', '#1A0A00'],
-  ['itemproperty_becocraft',   '#2A8B6A', '#1A5A44', null],
-  ['itemproperty_salvage1',    '#7A7060', '#5A5048', null],
-  ['itemproperty_salvage2',    '#7A7060', '#5A5048', null],
-  ['itemproperty_salvagelvl1', '#7A7060', '#5A5048', null],
-  ['itemproperty_level82',     '#7A7060', '#5A5048', null],
-  ['itemproperty_toplevelbased1','#7A7060','#5A5048', null],
-  ['utility_unknownitem',      '#3A6BBF', '#2A4F9A', '#000A18'],
-  ['utility_unremarkabledrop', '#3A3530', '#252220', null],
+  ['typebased_gems2',          '#8B3A62',   '#6B2040',   '#120008'],
+  ['typebased_gems3',          '#3A6BBF',  '#2A4F9A',   null],
+  ['typebased_flaskcharms',    '#2A8B6A',  '#1A5A44',    null],
+  ['typebased_flaskcharms1high','#2A8B6A', '#1A5A44',   null],
+  ['gear_jewelrare',           '#8B3A62',   '#6B2040',   '#120008'],
+  ['gear_jewelmagic',          '#3A6BBF',  '#2A4F9A',   '#000A18'],
+  ['gear_jewelmagiclow',       '#3A6BBF',  '#2A4F9A',   null],
+  ['gear_jewellery1',          '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['gear_jewellery2',          '#8B3A62',   '#6B2040',   '#120008'],
+  ['gear_tieredjewellery',     '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['gear_decojewellery',       '#A0522D',   '#7A3B1E',   null],
+  ['gear_highlightdrop2',      '#8B3A62',   '#6B2040',   '#120008'],
+  ['gear_highlightdrop3',      '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['gear_highlightedsize',     '#A0522D',   '#7A3B1E',   null],
+  ['gear_weakrare1',           '#7A7060',  '#5A5048',    null],
+  ['gear_weakrare2',           '#7A7060',  '#5A5048',    null],
+  ['gear_weakrareleveling1',   '#7A7060',  '#5A5048',    null],
+  ['gear_vendor',              '#3A3530',    '#252220',    null],
+  ['xeno_a',                   '#C0243C',   '#8B0000',     '#1A0008'],
+  ['xeno_b',                   '#2A8B6A',  '#1A5A44',    null],
+  ['xeno_c',                   '#2A8B6A',  '#1A5A44',    null],
+  ['xeno_d',                   '#7A7060',  '#5A5048',    null],
+  ['xeno_e',                   '#7A7060',  '#5A5048',    null],
+  ['itemproperty_achancing',   '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['itemproperty_bchancing',   '#2A8B6A',  '#1A5A44',    null],
+  ['itemproperty_aecocraft',   '#A0522D',   '#7A3B1E',   '#1A0A00'],
+  ['itemproperty_becocraft',   '#2A8B6A',  '#1A5A44',    null],
+  ['itemproperty_salvage1',    '#7A7060',  '#5A5048',    null],
+  ['itemproperty_salvage2',    '#7A7060',  '#5A5048',    null],
+  ['itemproperty_salvagelvl1', '#7A7060',  '#5A5048',    null],
+  ['itemproperty_level82',     '#7A7060',  '#5A5048',    null],
+  ['itemproperty_toplevelbased1','#7A7060','#5A5048',   null],
+  ['utility_unknownitem',      '#3A6BBF',  '#2A4F9A',   '#000A18'],
+  ['utility_unremarkabledrop', '#3A3530',    '#252220',    null],
 ];
 
-colors.forEach(([id, text, border, bg]) => console.log(setColor(id, text, border, bg)));
+colors.forEach(([styleId, text, border, bg]) => setColors(styleId, text, border, bg));
+console.log('Colors applied: ' + colors.length + ' style keys');
 ```
-
-
 
 ---
 
 ## Section 6 — Sound Assignments
 
-All sounds use the `PlayAlertSound` identifier with `CustomAlertSound` format:
+Sounds use two formats depending on type:
+
+**Custom mp3:**
 
 ```json
 {
@@ -574,10 +555,10 @@ const sounds = [
   ['gems->uncut;spiritgemprogression16','gem.mp3'],
   ['gems->uncut;spiritgemprogression15','gem.mp3'],
   ['gems->uncut;spiritgemprogression14','gem.mp3'],
-  ['gems->uncut;supportearlymaps',      'gem.mp3'],
-  ['gems->lineage;s',                   'gem.mp3'],
-  ['gems->lineage;a',                   'gem.mp3'],
-  ['gems->lineage;b',                   'gem.mp3'],
+  ['gems->uncut;supportearlymaps',      'shake.mp3'],  // set per rule in Customize tab
+  ['gems->lineage;s',                   'shake.mp3'],
+  ['gems->lineage;a',                   'shake.mp3'],
+  ['gems->lineage;b',                   'shake.mp3'],
   ['jewels->generic;anytimelost',       'gem.mp3'],
   ['jewels->generic;any5modded',        'gem.mp3'],
   ['jewels->generic;anycorruptedmod',   'gem.mp3'],
@@ -628,7 +609,7 @@ function setSound(itemTag, filename, volume = 300) {
       isReal: true
     },
     newValue: ['CustomAlertSound', [filename, volume]],
-    logicName: 'editFilterEntry',
+    logicName: 'editStyleCombi',
     version: 1,
     itemTag: itemTag
   }, true);
@@ -638,6 +619,285 @@ function setSound(itemTag, filename, volume = 300) {
 sounds.forEach(([tag, file]) => console.log(setSound(tag, file)));
 cs.updateLocalStorage();
 ```
+
+
+
+---
+
+## Section 8 — Map Icon Assignments (Full Per-Rule Spec)
+
+Map icons use the `MinimapIcon` identifier targeting individual rules by `itemTag`. Format confirmed from console capture:
+
+```json
+{
+  "identifier": { "identifier": "MinimapIcon", "mode": "normal", "index": 1, "version": 3, "isReal": true },
+  "newValue": ["<size>", "<color>", "<shape>"]
+}
+```
+
+Size: `"0"` = large, `"1"` = medium, `"2"` = small.
+Available colors: Blue, Green, Brown, Red, White, Yellow, Cyan, Grey, Orange, Pink, Purple.
+
+**Built-in Normal sound:**
+```json
+{
+  "identifier": { "identifier": "PlayAlertSound", ... },
+  "newValue": ["PlayAlertSound", ["6", "300"]]
+}
+```
+Where `"6"` is the sound number (1–12) as a string.
+
+Available colors: Blue, Green, Brown, Red, White, Yellow, Cyan, Grey, Orange, Pink, Purple.
+Available shapes: Circle, Diamond, Hexagon, Square, Star, Triangle, Cross, Moon, Raindrop, Kite, Pentagon, UpsideDownHouse.
+
+### Full itemTag → icon mapping
+
+```javascript
+const icons = [
+  // S-tier / apex — Star · Purple · Large
+  ['currency;s',                         '0', 'Purple', 'Star'],
+  ['fragments->generic;s',               '0', 'Purple', 'Star'],
+  ['currency->splinter;t1',              '0', 'Purple', 'Star'],
+  ['maplike->special;superkeys',         '0', 'Purple', 'Star'],
+
+  // Top currency — Circle · Yellow · Large
+  ['currency;a',                         '0', 'Yellow', 'Circle'],
+  ['currency;b',                         '0', 'Yellow', 'Circle'],
+  ['gold;stack3',                        '0', 'Yellow', 'Circle'],  // Gigantic gold
+  ['fragments->generic;a',               '0', 'Yellow', 'Circle'],
+  ['currency->splinter;t2',              '0', 'Yellow', 'Circle'],
+
+  // High currency — Circle · Yellow · Medium
+  ['currency;c',                         '1', 'Yellow', 'Circle'],
+  ['currency;d',                         '1', 'Yellow', 'Circle'],
+  ['fragments->generic;b',               '1', 'Yellow', 'Circle'],
+  ['currency->splinter;t3',              '1', 'Yellow', 'Circle'],
+  ['maplike->special;vaultkeysrare',     '1', 'Yellow', 'Circle'],
+
+  // Uniques T1 — Star · Orange · Large
+  ['uniques;t1',                         '0', 'Orange', 'Star'],
+  ['uniques;sekhemaring',                '0', 'Orange', 'Star'],
+  ['uniques;multispecialhigh',           '0', 'Orange', 'Star'],
+  ['uniques;overqualityuniques',         '0', 'Orange', 'Star'],
+  ['uniques;oversocketuniques1',         '0', 'Orange', 'Star'],
+  ['uniques;twicecorrupteduniques',      '0', 'Orange', 'Star'],
+
+  // Uniques T2 — Star · Orange · Medium
+  ['uniques;t2',                         '1', 'Orange', 'Star'],
+  ['uniques;t3boss',                     '1', 'Orange', 'Star'],
+  ['uniques;multispecial',               '1', 'Orange', 'Star'],
+  ['uniques;vaalmodunique',              '1', 'Orange', 'Star'],
+
+  // Uniques T3 — Star · Orange · Small
+  ['uniques;t3',                         '2', 'Orange', 'Star'],
+  ['uniques;earlyleague',                '2', 'Orange', 'Star'],
+
+  // Exotics B — Diamond · Orange · Medium
+  ['exoticbases;superexoticbases',       '1', 'Orange', 'Diamond'],
+  ['exoticbases;kalandrabases',          '1', 'Orange', 'Diamond'],
+  ['exotic->exceptional;overqual1q1',    '1', 'Orange', 'Diamond'],
+  ['exotic->exceptional;oversockt1s3',   '1', 'Orange', 'Diamond'],
+
+  // Exotics C — Diamond · Pink · Medium
+  ['exoticbases;pseudocrafts1',          '1', 'Pink',   'Diamond'],
+  ['exoticbases;commonexoticbaseshigh',  '1', 'Pink',   'Diamond'],
+
+  // Exotics D — Diamond · Cyan · Medium
+  ['exoticbases;commonexoticbases',      '1', 'Cyan',   'Diamond'],
+  ['exoticbases;pseudocrafts2',          '1', 'Cyan',   'Diamond'],
+
+  // Waystones T13–T16 — Square · Orange · Medium
+  ['waystones;waystone_t16',             '1', 'Orange', 'Square'],
+  ['waystones;waystone_t15',             '1', 'Orange', 'Square'],
+  ['waystones;waystone_t14',             '1', 'Orange', 'Square'],
+  ['waystones;waystone_t13',             '1', 'Orange', 'Square'],
+  ['waystones;corrupted8high',           '1', 'Orange', 'Square'],
+
+  // Waystones T8–T12 — Square · Pink · Medium
+  ['waystones;waystone_t12',             '1', 'Pink',   'Square'],
+  ['waystones;waystone_t11',             '1', 'Pink',   'Square'],
+  ['waystones;waystone_t10',             '1', 'Pink',   'Square'],
+  ['waystones;waystone_t9',              '1', 'Pink',   'Square'],
+  ['waystones;waystone_t8',              '1', 'Pink',   'Square'],
+
+  // Waystones T4–T7 — Square · Cyan · Small
+  ['waystones;waystone_t7',              '2', 'Cyan',   'Square'],
+  ['waystones;waystone_t6',              '2', 'Cyan',   'Square'],
+  ['waystones;waystone_t5',             '2', 'Cyan',   'Square'],
+  ['waystones;waystone_t4',              '2', 'Cyan',   'Square'],
+
+  // Rare jewels — Star · Pink · Large
+  ['jewels->generic;anytimelost',        '0', 'Pink',   'Star'],
+  ['jewels->generic;any5modded',         '0', 'Pink',   'Star'],
+  ['jewels->generic;anycorruptedmod',    '0', 'Pink',   'Star'],
+  ['jewels->generic;anyrare',            '0', 'Pink',   'Star'],
+
+  // Magic jewels — Circle · Cyan · Large
+  ['jewels->generic;anymagic',           '0', 'Cyan',   'Circle'],
+
+  // Jewellery T1 — Square · Orange · Large
+  ['endgame->jewellery;jt1ideallevel',   '0', 'White',  'Moon'],
+  ['endgame->jewellery;jt1',            '0', 'White',  'Moon'],
+
+  // Jewellery T2 — Square · Pink · Medium
+  ['endgame->jewellery;jt2ideallevel',   '1', 'White',  'Moon'],
+  ['endgame->jewellery;jt2',            '1', 'White',  'Moon'],
+
+  // Artifacts / corrupted — Circle · Red · Medium
+  ['exoticbases;superexoticbases',       '1', 'Red',    'Circle'],
+  ['artifact;fishingrod',                '1', 'Red',    'Circle'],
+
+  // Xeno A — Circle · Red · Large
+  ['xenotiering;s',                      '0', 'Red',    'Circle'],
+  ['xenotiering;a',                      '0', 'Red',    'Circle'],
+
+  // Xeno B — Circle · Green · Medium
+  ['xenotiering;b',                      '1', 'Green',  'Circle'],
+
+  // Xeno C — Circle · Green · Small
+  ['xenotiering;c',                      '2', 'Green',  'Circle'],
+
+  // Crafting / chancing bases — Diamond · White · Large
+  ['chancing;chances',                   '0', 'White',  'Diamond'],
+  ['chancing;chancea',                   '0', 'White',  'Diamond'],
+  ['endgame->normalcraft->economy;group1t1', '0', 'White', 'Diamond'],
+  ['endgame->normalcraft->economy;group1t2', '1', 'White', 'Diamond'],
+
+  // Special map items — Diamond · Purple · Medium
+  ['maplike->special;logbookshigh',      '1', 'Purple', 'Diamond'],
+  ['maplike->special;vaultkeys',         '1', 'Purple', 'Diamond'],
+  ['miscmapitemsextra;trialkeyultimatumtop',  '1', 'Purple', 'Diamond'],
+  ['miscmapitemsextra;trialkeysanctumtop',    '1', 'Purple', 'Diamond'],
+];
+
+function setIcon(itemTag, size, color, shape) {
+  const cs = gFilterBlade.changeStorage;
+  cs.addChange('dynamic', {
+    identifier: {
+      identifier: 'MinimapIcon',
+      mode: 'normal',
+      index: 1,
+      version: 3,
+      isReal: true
+    },
+    newValue: [size, color, shape],
+    logicName: 'editFilterEntry',
+    version: 1,
+    itemTag
+  }, true);
+  return `OK: ${itemTag}`;
+}
+
+icons.forEach(([tag, size, color, shape]) => console.log(setIcon(tag, size, color, shape)));
+```
+
+---
+
+## Section 9 — Beam Assignments
+
+Beams use the `PlayEffect` identifier. Format confirmed from console capture:
+
+```json
+{
+  "styleId": "apex_stier",
+  "identifier": { "identifier": "PlayEffect", "mode": "normal", "index": 1, "version": 3, "isReal": true },
+  "newValue": ["Purple"],
+  "logicName": "editStyleCombi",
+  "version": 1
+}
+```
+
+`newValue` format confirmed from console captures:
+- Beam on, permanent: `["Purple"]`
+- Beam on, temporary: `["Purple", "Temp"]`
+- Beam off (Active unchecked): `null`
+
+Beams set via style keys use `logicName: "editStyleCombi"` and `styleId`. This scheme uses **permanent beams only** — do not include `"Temp"`. To disable a beam, pass `null` as `newValue`.
+
+Available colors: Red, Green, Blue, Yellow, Brown, White, Cyan, Grey, Orange, Pink, Purple.
+
+### Beam tier assignments
+
+Only high-value tiers get beams. Lower tiers get no beam to avoid visual noise.
+
+| Style Key / itemTag | Beam Color | Notes |
+|---|---|---|
+| `apex_stier` | Purple | S-tier — permanent beam |
+| `fragments_a`, `fragments_splinter1/2` | Purple | Top fragments/splinters |
+| `maps_specialb` | Purple | Pinnacle keys |
+| `currency_a`, `currency_b` | Yellow | Top currency |
+| `gold_pilehuge` | Yellow | Gigantic gold |
+| `uniques_a`, `uniques_exceptional` | Orange | Top uniques |
+| `exotics_artifacthigh` | Red | High artifacts — danger signal |
+| `xeno_a` | Red | Xeno S/A tier |
+| `exotics_corrupthigh` | Red | Corrupted exotics high — upgraded to beam |
+| `gear_jewelrare` | Pink | Rare jewels |
+| `fragments_b`, `fragments_splinter3` | Yellow | High fragments |
+| `maps_regularhighest` | Orange | Waystones T13–T16 |
+
+### Beam re-apply script
+
+```javascript
+// Style-key beams (via editStyleCombi)
+const styleBeams = [
+  ['apex_stier',           'Purple'],
+  ['fragments_a',          'Purple'],
+  ['fragments_splinter1',  'Purple'],
+  ['fragments_splinter2',  'Purple'],
+  ['maps_specialb',        'Purple'],
+  ['currency_a',           'Yellow'],
+  ['currency_b',           'Yellow'],
+  ['gold_pilehuge',        'Yellow'],
+  ['uniques_a',            'Orange'],
+  ['uniques_exceptional',  'Orange'],
+  ['uniques_x',            'Orange'],
+  ['exotics_artifacthigh', 'Red'],
+  ['exotics_corrupthigh',  'Red'],
+  ['xeno_a',               'Red'],
+  ['gear_jewelrare',       'Pink'],
+  ['fragments_b',          'Yellow'],
+  ['fragments_splinter3',  'Yellow'],
+  ['maps_regularhighest',  'Orange'],
+];
+
+function setBeam(styleId, color) {
+  const cs = gFilterBlade.changeStorage;
+  cs.addChange('dynamic', {
+    styleId,
+    identifier: {
+      identifier: 'PlayEffect',
+      mode: 'normal',
+      index: 1,
+      version: 3,
+      isReal: true
+    },
+    newValue: [color],
+    logicName: 'editStyleCombi',
+    version: 1
+  }, true);
+  return `OK: ${styleId} → ${color}`;
+}
+
+styleBeams.forEach(([styleId, color]) => console.log(setBeam(styleId, color)));
+console.log('Beams applied: ' + styleBeams.length + ' style keys');
+```
+
+---
+
+## Section 7 — Legacy Global Color & Sound Editors
+
+FilterBlade has a "Legacy Global Color & Sound Editors" panel with four sections: Text colors, Border colors, Background colors, and Sounds.
+
+**What it does:** Find-and-replace across the entire filter by raw color/sound value. If a color like rgb(240, 207, 132) appears in 50 rules, changing it here updates all 50 at once regardless of which style key they belong to.
+
+**Do not use this for the Dark Moody Amethyst scheme.** The Section 5 re-apply script handles all 93 style keys precisely and is the correct way to apply this scheme. The legacy editors are a blunt instrument that can cause unintended conflicts:
+
+- They operate on raw color values, not style keys — so two different tiers that happen to share a similar value could both get changed unexpectedly.
+- Running the legacy editor after applying this scheme could silently overwrite intentional color decisions.
+- They only show items NeverSink has already customized, so they don't represent the full filter.
+
+**Before applying this scheme:** Click RESET on all four legacy editors (Text colors, Border colors, Background colors, Sounds) to clear any previous legacy overrides. Then run the Section 5 and Section 6 scripts to apply the full scheme cleanly.
+
 
 ---
 

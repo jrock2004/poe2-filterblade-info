@@ -4,7 +4,7 @@ This project automates color scheme application to FilterBlade.xyz (NeverSink Po
 
 ## Goal
 
-Apply a custom color theme ("Cosmic Gold") to a NeverSink Semi-Strict filter on FilterBlade.xyz, save it to FilterBlade's server so it persists, and upload it to PoE via OAuth sync.
+Apply a custom color theme ("Dark Moody Amethyst") to a NeverSink Semi-Strict filter on FilterBlade.xyz, save it to FilterBlade's server so it persists, and upload it to PoE via OAuth sync.
 
 ## Environment
 
@@ -50,25 +50,60 @@ cs.addChange(type, valueObj, skipLS)  // records a change, returns AbstractChang
 cs.updateLocalStorage()             // persists to browser localStorage
 ```
 
-### Change Object Format (style color changes)
+### Change Object Formats
+
+FilterBlade uses two `logicName` values for `addChange("dynamic", ...)`. **Use the wrong one and the change is silently ignored.**
+
+#### `editStyleCombi` — style-level changes (colors, beams)
+
+Target by `styleId`. Covers: `SetTextColor`, `SetBorderColor`, `SetBackgroundColor`, `PlayEffect`.
 
 ```javascript
-// Type: "dynamic"
-// valueObj:
-{
-  styleId: "apex_stier",            // GFT style key
-  identifier: {
-    identifier: "SetTextColor",     // or "SetBorderColor"
-    mode: "normal",
-    index: 1,
-    version: 3,
-    isReal: true
-  },
-  newValue: "rgb(184, 240, 255)",   // CSS rgb string
+// Color (newValue must be a CSS rgb string — NOT hex)
+cs.addChange("dynamic", {
+  styleId: "apex_stier",
+  identifier: { identifier: "SetTextColor", mode: "normal", index: 1, version: 3, isReal: true },
+  newValue: "rgb(199, 125, 255)",
   logicName: "editStyleCombi",
   version: 1
-}
+}, true);
+
+// Beam — permanent only (no "Temp"); null = beam off
+cs.addChange("dynamic", {
+  styleId: "apex_stier",
+  identifier: { identifier: "PlayEffect", mode: "normal", index: 1, version: 3, isReal: true },
+  newValue: ["Purple"],
+  logicName: "editStyleCombi",
+  version: 1
+}, true);
 ```
+
+#### `editFilterEntry` — per-rule changes (sounds, icons)
+
+Target by `itemTag` instead of `styleId`. Covers: `PlayAlertSound`, `MinimapIcon`.
+
+```javascript
+// Sound
+cs.addChange("dynamic", {
+  identifier: { identifier: "PlayAlertSound", mode: "normal", index: 1, version: 3, isReal: true },
+  newValue: ["CustomAlertSound", ["Stefan Gold_6veryvaluable.mp3", 300]],
+  logicName: "editFilterEntry",
+  version: 1,
+  itemTag: "currency;s"
+}, true);
+
+// Map icon — size: "0"=large "1"=medium "2"=small
+cs.addChange("dynamic", {
+  identifier: { identifier: "MinimapIcon", mode: "normal", index: 1, version: 3, isReal: true },
+  newValue: ["0", "Purple", "Star"],
+  logicName: "editFilterEntry",
+  version: 1,
+  itemTag: "currency;s"
+}, true);
+```
+
+Available icon colors: Blue, Green, Brown, Red, White, Yellow, Cyan, Grey, Orange, Pink, Purple.
+Available icon shapes: Circle, Diamond, Hexagon, Square, Star, Triangle, Cross, Moon, Raindrop, Kite, Pentagon, UpsideDownHouse.
 
 ---
 
@@ -205,16 +240,73 @@ Full waypoint ID list saved in `strictnessCluster-dump.json` exploration.
 | Exceptional & Identified | ModTierRare, ModTierMagic |
 | Special Rules | SpecialCases, Technical |
 
+### Customize Tab: Gem Icon Overrides
+
+Gem icon shapes **cannot** be set on a style key — skill, spirit, and support gems all share the same style keys (`typebased_gems1/2/3`). Icon shape must be set per-rule via `editFilterEntry` targeting each gem's `itemTag`.
+
+Navigate to **Customize → Gems** and expand each subsection, or apply programmatically:
+
+```javascript
+function setIcon(itemTag, size, color, shape) {
+  const cs = gFilterBlade.changeStorage;
+  cs.addChange('dynamic', {
+    identifier: { identifier: 'MinimapIcon', mode: 'normal', index: 1, version: 3, isReal: true },
+    newValue: [size, color, shape],
+    logicName: 'editFilterEntry',
+    version: 1,
+    itemTag
+  }, true);
+}
+```
+
+Dark Moody Amethyst gem icon assignments:
+
+| itemTag | Size | Color | Shape |
+|---|---|---|---|
+| `gems->uncut;skill20` | `"0"` | Purple | Triangle |
+| `gems->uncut;skill19` | `"1"` | Purple | Triangle |
+| `gems->uncut;skillgemprogression18` through `14` | `"2"` | Purple | Triangle |
+| `gems->uncut;spirit20` | `"0"` | Purple | Kite |
+| `gems->uncut;spirit19` | `"1"` | Purple | Kite |
+| `gems->uncut;spiritgemprogression18` through `14` | `"2"` | Purple | Kite |
+| `gems->uncut;supportearlymaps` | `"1"` | Blue | Diamond |
+| `gems->uncut;othersupporteg` | `"2"` | Blue | Diamond |
+| `gems->lineage;s` | `"0"` | Pink | Diamond |
+| `gems->lineage;a` | `"1"` | Pink | Diamond |
+| `gems->lineage;b` | `"2"` | Pink | Diamond |
+| `gems;upgradedgemstwice` | `"2"` | Grey | Diamond |
+| `gems;upgradedgemslevel` | `"2"` | Grey | Diamond |
+
+See `dark-moody-amethyst-MANUAL.md` "CUSTOMIZE TAB — Gem Icon Overrides" for the full UI navigation path per rule.
+
+### Customize Tab: Waystone Per-Rule Colors (Normal Section)
+
+Waystones do **not** connect to style keys in the usual way — per-tier colors must be set directly on individual rules in **Customize → Other Endgame Items → Waystones → Normal**.
+
+Do not touch the Decorators (advanced) section — leave at default.
+
+Dark Moody Amethyst waystone color tiers:
+
+| Tier | Text | Border | BG | Icon Size | Icon Color |
+|---|---|---|---|---|---|
+| T16 | — | — | — | — | — | DO NOT TOUCH — uses apex/stier theme |
+| T13–T15 | `rgb(0,0,0)` | unchecked | `rgb(235,235,235)` | Medium (1) | Red/Yellow | Square |
+| T8–T12 | `#8A9AAA` | `#5A6A7A` | `#0A0E12` | Medium (1) | Grey | Square |
+| T4–T7 | `#6A7A8A` | `#4A5A6A` | transparent | Small (2) | Grey | Square |
+| T1–T3 | `#7A7060` | `#5A5048` | transparent | — | — | — |
+
+See `dark-moody-amethyst-MANUAL.md` "CUSTOMIZE TAB — Waystone Colors" for the full per-tier table with exact values and sounds.
+
 ---
 
 ## Workflow: Applying a Color Scheme
 
 ### Step 1 — Set colors in filter data
 
-Use `setColor()` for styles that already have text/border lines:
+Use `setColor()` for styles that already have text/border lines. The `bgHex` parameter is optional — pass `null` to leave background unchanged:
 
 ```javascript
-function setColor(styleId, textHex, borderHex) {
+function setColor(styleId, textHex, borderHex, bgHex) {
   const styleToDetails = gFilterBlade.filterData.filterEntryStyles.styleToDetails;
   const style = styleToDetails[styleId];
   if (!style) return `MISSING: ${styleId}`;
@@ -241,6 +333,16 @@ function setColor(styleId, textHex, borderHex) {
       line.param[0]=r; line.param[1]=g; line.param[2]=b; line.param[3]=a;
       line.raw=`\tSetBorderColor ${r} ${g} ${b} ${a}`;
       line.rebuiltLine=`SetBorderColor ${r} ${g} ${b} ${a}`;
+      line.isEverModified=true;
+    }
+  }
+  if (bgHex) {
+    const line = lineList.find(l => l.ident === 'SetBackgroundColor');
+    if (line) {
+      const [r,g,b,a] = hexToRgba(bgHex);
+      line.param[0]=r; line.param[1]=g; line.param[2]=b; line.param[3]=a;
+      line.raw=`\tSetBackgroundColor ${r} ${g} ${b} ${a}`;
+      line.rebuiltLine=`SetBackgroundColor ${r} ${g} ${b} ${a}`;
       line.isEverModified=true;
     }
   }
@@ -298,7 +400,8 @@ function addColorToBackgroundTheme(styleId, textHex, borderHex) {
 
 ### Step 2 — Record changes to changeGroups
 
-After setting filter data, iterate all styles and add changes so FilterBlade can persist them:
+After setting filter data, iterate all styles and add changes so FilterBlade can persist them.
+This version records text, border, **and background** colors:
 
 ```javascript
 function recordAllColorChanges() {
@@ -312,8 +415,9 @@ function recordAllColorChanges() {
     const lineList = style.styleContentFilterEntry?.lineList;
     if (!lineList) continue;
 
-    const textLine = lineList.find(l => l.ident === 'SetTextColor');
+    const textLine   = lineList.find(l => l.ident === 'SetTextColor');
     const borderLine = lineList.find(l => l.ident === 'SetBorderColor');
+    const bgLine     = lineList.find(l => l.ident === 'SetBackgroundColor');
 
     if (textLine) {
       const [r,g,b] = textLine.param;
@@ -338,6 +442,18 @@ function recordAllColorChanges() {
       }, true);
       res ? added++ : skipped++;
     }
+
+    if (bgLine && bgLine.param[3] > 0) {  // skip transparent (alpha = 0)
+      const [r,g,b] = bgLine.param;
+      const res = cs.addChange("dynamic", {
+        styleId,
+        identifier: mkId('SetBackgroundColor'),
+        newValue: `rgb(${r}, ${g}, ${b})`,
+        logicName: 'editStyleCombi',
+        version: 1
+      }, true);
+      res ? added++ : skipped++;
+    }
   }
 
   cs.updateLocalStorage();
@@ -345,7 +461,51 @@ function recordAllColorChanges() {
 }
 ```
 
-### Step 3 — Save & Upload
+### Step 3 — Apply per-rule changes (sounds, icons, beams)
+
+Per-rule changes target individual filter entries by `itemTag`. See `dark-moody-amethyst-colors-2.md` Sections 6, 8, 9 for the full Dark Moody Amethyst scripts.
+
+```javascript
+// Sound (editFilterEntry + itemTag)
+function setSound(itemTag, filename, volume = 300) {
+  const cs = gFilterBlade.changeStorage;
+  cs.addChange('dynamic', {
+    identifier: { identifier: 'PlayAlertSound', mode: 'normal', index: 1, version: 3, isReal: true },
+    newValue: ['CustomAlertSound', [filename, volume]],
+    logicName: 'editFilterEntry',
+    version: 1,
+    itemTag
+  }, true);
+}
+
+// Map icon (editFilterEntry + itemTag)
+function setIcon(itemTag, size, color, shape) {
+  const cs = gFilterBlade.changeStorage;
+  cs.addChange('dynamic', {
+    identifier: { identifier: 'MinimapIcon', mode: 'normal', index: 1, version: 3, isReal: true },
+    newValue: [size, color, shape],
+    logicName: 'editFilterEntry',
+    version: 1,
+    itemTag
+  }, true);
+}
+
+// Beam (editStyleCombi + styleId — NOT itemTag)
+function setBeam(styleId, color) {
+  const cs = gFilterBlade.changeStorage;
+  cs.addChange('dynamic', {
+    styleId,
+    identifier: { identifier: 'PlayEffect', mode: 'normal', index: 1, version: 3, isReal: true },
+    newValue: [color],  // null to disable beam
+    logicName: 'editStyleCombi',
+    version: 1
+  }, true);
+}
+
+cs.updateLocalStorage();
+```
+
+### Step 4 — Save & Upload
 
 Click the "Save & Upload once" button (or "Save as new"):
 
@@ -355,6 +515,71 @@ document.getElementById('dlScreen_SyncContent').click();
 ```
 
 **Known issue**: The FilterBlade profile save to AWS (profileSaveStates API) returns 401 if the session token has expired. This only affects the FilterBlade save-state; the PoE filter upload still succeeds. Fix: log out and back in to refresh the OAuth token, then save again.
+
+---
+
+## Save File Fix Script
+
+FilterBlade stores "off" states (disabled beams, transparent backgrounds, no sound) as `null` or `false` internally. When you download and re-upload a save file, these values crash FilterBlade on load with `TypeError: Cannot read properties of undefined`.
+
+**Run `fix_savefile.py` on every downloaded save file before loading it back into FilterBlade.**
+
+```bash
+python3 fix_savefile.py YourFilter.filterBladeSaveFile
+# Creates YourFilter_fixed.filterBladeSaveFile automatically
+
+python3 fix_savefile.py input.filterBladeSaveFile output.filterBladeSaveFile
+```
+
+What it fixes:
+- Removes `null`/`false` no-op entries for: `SetBackgroundColor`, `SetTextColor`, `SetBorderColor`, `PlayEffect`, `PlayAlertSound`, `MinimapIcon`, `UsedEntryStyleCombi`
+- Converts hex color values (`#C77DFF`) to rgb format (`rgb(199, 125, 255)`) — FilterBlade accepts hex in the live editor but its save/load parser requires rgb strings
+
+---
+
+## Dark Moody Amethyst Color Palette
+
+Theme files: `dark-moody-amethyst-colors.md` (style key → color map + scripts), `dark-moody-amethyst-MANUAL.md` (UI walkthrough).
+
+| Name | Hex | Purpose |
+|---|---|---|
+| Amethyst | `#C77DFF` | S-tier apex, top fragments/splinters, gem labels |
+| Amethyst Border | `#E0AAFF` | Border accent for Amethyst items |
+| Amethyst BG | `#1A0030` | Background for apex/top items |
+| Dark Gold | `#C9A84C` | Currency T1–T2, gigantic gold, top fragments |
+| Dark Gold BG | `#2A1A00` | Background for top currency |
+| Antique Gold | `#A08030` | Currency T3–T4, mid-high currency |
+| Antique Gold BG | `#1E1200` | Background for mid-high currency |
+| Faded Gold | `#7A6020` | Currency T5, wisdom scrolls, supply shards |
+| Sienna | `#A0522D` | Uniques, exotics B-tier, high waystones |
+| Sienna BG | `#1A0A00` | Background for uniques/high value |
+| Sienna Border | `#7A3B1E` | Border for Sienna items |
+| Crimson Rose | `#8B3A62` | Rare jewels, exotics C-tier, mid waystones |
+| Crimson Rose BG | `#120008` | Background for mid-value items |
+| Crimson Rose Border | `#6B2040` | Border for Crimson Rose items |
+| Steel Blue | `#3A6BBF` | Magic jewels, exotics D-tier, lower waystones |
+| Steel Blue BG | `#000A18` | Background for lower-mid items |
+| Steel Blue Border | `#2A4F9A` | Border for Steel Blue items |
+| Blood Red | `#C0243C` | Artifacts, corrupted exotics, xeno A |
+| Blood Red BG | `#1A0008` | Background for corrupted/artifact items |
+| Blood Red Border | `#8B0000` | Border for Blood Red items |
+| Forest Green | `#2A8B6A` | Flasks, charms, xeno B–C, crafting bases |
+| Forest Border | `#1A5A44` | Border for Forest items |
+| Ash | `#7A7060` | Salvageables, filler, low-value xeno |
+| Ash Border | `#5A5048` | Border for Ash items |
+| Charcoal | `#3A3530` | Unremarkable drops (invisible filler) |
+| Gem Purple Border | `#9B4FCC` | Border for gem labels (darker than Amethyst) |
+| Lineage Pink | `#FF69B4` | Lineage gems |
+| Lineage Pink Border | `#CC3380` | Border for lineage gem labels |
+| Silver (Jewellery T1) | `#D0C8C0` | Jewellery T1, highlighted drops, tiered jewellery |
+| Silver Border T1 | `#9A9088` | Border for Silver T1 items |
+| Silver BG T1 | `#1A1814` | Background for Silver T1 items |
+| Silver (Jewellery T2) | `#B8B0A8` | Jewellery T2 |
+| Silver Border T2 | `#787068` | Border for Silver T2 items |
+| Silver BG T2 | `#120E0C` | Background for Silver T2 items |
+
+Full style key → color mapping: `dark-moody-amethyst-colors.md` Section 2.
+Per-rule scripts (sounds, icons, beams): Sections 6, 8, 9.
 
 ---
 
@@ -368,17 +593,22 @@ document.getElementById('dlScreen_SyncContent').click();
 | Error modal after save | Part of the save flow failed | Check console; the PoE upload may have still succeeded |
 | 401 on profile save | Session token expired | Log out, log back in, save again |
 | Page reload loses all changes | In-memory JS edits are not persisted | Re-apply all `setColor` calls and re-run `recordAllColorChanges` |
+| Save file crashes on load | null/false/hex values in save file | Run `fix_savefile.py` before loading any downloaded save file |
+| Sound/icon change ignored | Used `editStyleCombi` instead of `editFilterEntry` | Per-rule changes (sounds, icons) require `logicName: 'editFilterEntry'` with `itemTag` |
+| Beam change ignored | Used `editFilterEntry` instead of `editStyleCombi` | Beams require `logicName: 'editStyleCombi'` with `styleId` |
+| Background color not saved | Old `recordAllColorChanges` skipped bg lines | Use the updated version above that handles `SetBackgroundColor` |
 
 ---
 
 ## Reference Data Files
 
-Two JSON snapshots are saved in the project root. They capture the **default state** of the filter and serve as a lookup reference — no need to recreate them unless the filter version changes.
-
 | File | Contents | Use |
 |---|---|---|
 | `styleToDetails-dump.json` | All 93 style IDs, which color lines each has (text/border/background), default RGBA values | Know which styles exist and whether to use `setColor` vs `addColorToBackgroundTheme` |
 | `strictnessCluster-dump.json` | All 537 show/hide entries grouped by category, with `tagID`, `displayName`, default show/hide state | Look up `tagID` values to pass to `set_ShowHide` / `recordAllShowHideChanges` |
+| `dark-moody-amethyst-colors.md` | Full scheme: color mapping, re-apply script, sounds, icons, beams | Primary reference for re-applying the full Dark Moody Amethyst scheme |
+| `dark-moody-amethyst-MANUAL.md` | Per-rule UI walkthrough: label sizes, icons, beams, sounds, Customize tab gem/waystone rules | Use when applying the scheme manually in the FilterBlade UI |
+| `fix_savefile.py` | Fixes null/hex values in downloaded save files | Run before every save file reload into FilterBlade |
 
 ---
 
@@ -394,7 +624,7 @@ JSON.parse(gFilterBlade.changeStorage.changeGroups[0].changes[0].changeValue)
 // Verify a style's current text color
 const s = gFilterBlade.filterData.filterEntryStyles.styleToDetails['apex_stier'];
 s.styleContentFilterEntry.lineList.find(l => l.ident === 'SetTextColor').param
-// → [184, 240, 255, 255]
+// → [199, 125, 255, 255]
 ```
 
 ## Exporting the Filter File
@@ -403,4 +633,4 @@ On the EXPORT tab, click "Download Filter" to save a `.filter` file. This bakes 
 
 The exported filter is saved to:
 - `~/Documents/My Games/Path of Exile 2/` (for in-game use)
-- The project root as `Cosmic-Gold.filter` (backup copy)
+- The project root as `Dark-Moody-Amethyst.filter` (backup copy)
